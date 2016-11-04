@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="40068c7f-9a1b-434c-907e-7374fa88021a" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:57386/WSEjemplar.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="WSEjemplar.xsd" MetadataType="Schema" ID="a9332915-7c8b-40cf-9d69-889d50ee1425" SourceId="1" SourceUrl="http://localhost:57386/WSEjemplar.svc?xsd=xsd0" />
+    <MetadataFile FileName="WSEjemplar1.xsd" MetadataType="Schema" ID="f11678c9-a029-4280-bbc4-daac7f7999a6" SourceId="1" SourceUrl="http://localhost:57386/WSEjemplar.svc?xsd=xsd1" />
+    <MetadataFile FileName="WSEjemplar.disco" MetadataType="Disco" ID="97e7fe6e-46d1-4dea-a69d-df505a2d2f58" SourceId="1" SourceUrl="http://localhost:57386/WSEjemplar.svc?disco" />
+    <MetadataFile FileName="WSEjemplar2.xsd" MetadataType="Schema" ID="1a59291f-b4d0-4e3c-9230-86a950ef555f" SourceId="1" SourceUrl="http://localhost:57386/WSEjemplar.svc?xsd=xsd2" />
+    <MetadataFile FileName="WSEjemplar.wsdl" MetadataType="Wsdl" ID="7918853f-39eb-48cd-a909-f8d8c5012ccd" SourceId="1" SourceUrl="http://localhost:57386/WSEjemplar.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

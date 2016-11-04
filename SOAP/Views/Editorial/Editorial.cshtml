@@ -1,0 +1,44 @@
+﻿@model SOAP.Models.Editorial
+@{
+    ViewBag.Title = "Editorial";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section>
+    @using (Html.BeginForm("save", "Editorial", FormMethod.Post)) {
+        @Html.HiddenFor(model => model.CodEditorial)
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    @Html.LabelFor(model => model.Nombre, htmlAttributes: new {
+                   @class = ""
+               })
+                    @Html.EditorFor(model => model.Nombre, new {
+                   htmlAttributes = new {
+                       @class = ""
+                   }
+               })
+                    @Html.ValidationMessageFor(model => model.Nombre, "", new {
+                   @class = ""
+               })
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-lg-1">
+                    <button type="submit" class="btn btn-success">Guardar</button>
+                </div>
+                <div class="col-lg-1">
+                    @Html.ActionLink("Cancelar", "Index", "", htmlAttributes: new {
+                   @class = "btn btn-danger"
+               })
+                </div>
+            </div>
+        </div>
+
+
+
+    }
+</section>
+
+

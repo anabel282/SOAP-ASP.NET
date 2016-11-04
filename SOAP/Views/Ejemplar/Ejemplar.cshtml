@@ -1,0 +1,90 @@
+﻿@model GestionBibliotecaMVC.Models.Ejemplar
+
+@{
+    ViewBag.Title = "Ejemplar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section>
+    @using (Html.BeginForm("save", "Ejemplar", FormMethod.Post)) {
+        @Html.HiddenFor(model => model.CodEjemplar)
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="col-lg-1">
+                    @Html.LabelFor(model => model.Titulo, htmlAttributes: new {
+                   @class = ""
+               })
+                </div>
+                <div class="col-lg-1">
+                    @Html.EditorFor(model => model.Titulo, new {
+                   htmlAttributes = new {
+                       @class = ""
+                   }
+               })
+                </div>
+                @Html.ValidationMessageFor(model => model.Titulo, "", new {
+               @class = ""
+           })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="col-lg-1">
+                    @Html.LabelFor(model => model.ISBN, htmlAttributes: new {
+                   @class = ""
+               })
+                </div>
+                <div class="col-lg-1">
+                    @Html.EditorFor(model => model.ISBN, new {
+                   htmlAttributes = new {
+                       @class = ""
+                   }
+               })
+                </div>
+                @Html.ValidationMessageFor(model => model.ISBN, "", new {
+               @class = ""
+           })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="col-lg-1">
+                    @Html.LabelFor(model => model.NumPaginas, htmlAttributes: new {
+                   @class = ""
+               })
+                </div>
+                <div class="col-lg-1">
+                    @Html.EditorFor(model => model.NumPaginas, new {
+                   htmlAttributes = new {
+                       @class = ""
+                   }
+               })
+                </div>
+                @Html.ValidationMessageFor(model => model.NumPaginas, "", new {
+               @class = ""
+           })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="col-lg-1">
+                    @Html.LabelFor(model => model.FPublicacion, htmlAttributes: new {
+                   @class = ""
+               })
+                </div>
+                <div class="col-lg-1">
+                    @Html.EditorFor(model => model.FPublicacion, new {
+                   htmlAttributes = new {
+                       @class = "", placeholder = "dd/MM/yyyy"
+                   }
+               })
+                </div>
+                @Html.ValidationMessageFor(model => model.FPublicacion, "", new {
+               @class = ""
+           })
+            </div>
+        </div>
+    }
+
+</section>
+

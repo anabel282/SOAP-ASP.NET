@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/Content/bootstrap.css" />
+    <link rel="stylesheet" href="~/Content/font-awesome.min.css" />
+    <link rel="stylesheet" href="~/scripts/bootstrap.min.js" />
+    <link rel="stylesheet" href="~/scripts/jquery-3.1.1.min.js" />
+    <link rel="stylesheet" href="~/Content/Site.css" />
+    <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.13.1/jquery.validate.min.js"></script>
+    @*@Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("/bundles/bootstrap")
+        @Styles.Render("~/Content/css")*@
+
+    <title>@ViewBag.Title - Gestión de Biblioteca SOAP</title>
+</head>
+<body>
+    <div class="container-fluid col-lg-12">
+        <header><h1>@ViewBag.Title</h1></header>
+    </div>
+    <nav class="row">
+        @Html.Partial("_MenuPartialwithLogin")
+    </nav>
+    <main>
+        @if (ViewBag.Message != null) {
+            <h1>@ViewBag.Message</h1>
+        }
+        @if (ViewBag.ErrorMessage != null) {
+            <h3>@ViewBag.ErrorMessage</h3>
+        }
+    </main>
+    @RenderBody()
+</body>
+</html>
