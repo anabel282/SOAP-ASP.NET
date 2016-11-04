@@ -6,8 +6,12 @@ using System.ServiceModel;
 using System.Text;
 using SOAP.Models;
 using SOAP.BBLL.interfaces;
-using SOAP.BBLL;
+using SOAP.BBLL; 
 
+/**
+ * Un servicio web SOAP, es el transporte de datos entre maquinas, como normalmente es entre empresas diferentes, el codigo del objeto no se manda a la empresa demandante, por eso este SOAP no esta del todo bien.
+ * El getById, el delete y el update...tendria que utilizar como dato restrictivo, un dato unico que tuviese ejemplar, por ejemplo el ISBN. 
+ * */
 namespace WcfBiblioteca {
     // NOTA: puede usar el comando "Rename" del menú "Refactorizar" para cambiar el nombre de clase "WSEjemplar" en el código, en svc y en el archivo de configuración a la vez.
     // NOTA: para iniciar el Cliente de prueba WCF para probar este servicio, seleccione WSEjemplar.svc o WSEjemplar.svc.cs en el Explorador de soluciones e inicie la depuración.

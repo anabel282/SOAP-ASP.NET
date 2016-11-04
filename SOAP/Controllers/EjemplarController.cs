@@ -19,26 +19,21 @@ namespace SOAP.Controllers
         }
         // GET: Ejemplar
         [HttpGet]
-        public ActionResult Index(int codLibro = -1) {
+        public ActionResult Index() {
             ActionResult paginaRedirect = null;
-            IList<Ejemplar> ejemplares = null;
+            IList<EjemplarWSClient.WSEjemplarModel> ejemplares = null;
 
-            if (codLibro > 0) {
-                ejemplares = es.getByIdDeLibro(codLibro);
-                if (ejemplares.Count() <= 0) {
-                    ViewBag.ErrorMessage = "No se han encontrado ejemplares del libro seleccionado";
-                    ViewBag.codLibro = codLibro;
-                }
-            } else {
-                ejemplares = es.getAll();
-                if (ejemplares.Count() <= 0) {
-                    ViewBag.ErrorMessage = "No se han encontrado ejemplares";
-                    ViewBag.codLibro = codLibro;
-                }
+            using (EjemplarWSClient.IWSEjemplar cliente = new EjemplarWSClient.WSEjemplarClient()) {
+                editoriales = cliente.GetAll();
             }
-            paginaRedirect = View("Index", ejemplares);
-
-            return paginaRedirect;
+            // IList<Editorial> editoriales = eS.getAll();
+            if (editoriales.Count() > 0) {
+                resultado = View("Index", editoriales);
+            } else {
+                ViewBag.ErrorMessage("No hay editores en la BB.DD.");
+                resultado = View("Index", editoriales);
+            }
+            return resultado;
         }
 
         //POST: Ejemplar/save
