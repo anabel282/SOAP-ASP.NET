@@ -1,0 +1,31 @@
+﻿<nav class="nav navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Pagina Principal ", "Index", "Home")</li>
+            </ul>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <!--Primer parametro, lo que vemos. Segundo parametro, que metodo llamamos. Tercer parametro, que controlador llamamos-->
+                        <li>@Html.ActionLink("Autores ", "Index", "Autor")</li>
+                        <li>@Html.ActionLink("Libros ", "Index", "Libro")</li>
+                        <li>@Html.ActionLink("Editorial", "Index", "Editorial")</li>
+                        <li>@Html.ActionLink("Prestamos ", "Index", "Prestamo")</li>
+                        <li>@Html.ActionLink("Usuarios", "Index", "Usuario")</li>
+                        <li>@Html.ActionLink("Ejemplares", "Index", "Ejemplar")</li>
+
+                <li>@Html.ActionLink("Acerca de ", "About", "Home")</li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+

@@ -23,29 +23,35 @@ namespace SOAP.Controllers
             ActionResult paginaRedirect = null;
             IList<EjemplarWSClient.WSEjemplarModel> ejemplares = null;
 
-            using (EjemplarWSClient.IWSEjemplar cliente = new EjemplarWSClient.WSEjemplarClient()) {
-                editoriales = cliente.GetAll();
+            using (EjemplarWSClient.WSEjemplarClient cliente = new EjemplarWSClient.WSEjemplarClient()) {
+                ejemplares = cliente.GetAll();
             }
             // IList<Editorial> editoriales = eS.getAll();
-            if (editoriales.Count() > 0) {
-                resultado = View("Index", editoriales);
+            if (ejemplares.Count() > 0) {
+                paginaRedirect = View("Index", ejemplares);
             } else {
                 ViewBag.ErrorMessage("No hay editores en la BB.DD.");
-                resultado = View("Index", editoriales);
+                paginaRedirect = View("Index", ejemplares);
             }
-            return resultado;
+            return paginaRedirect;
         }
 
         //POST: Ejemplar/save
         [HttpPost]
-        public ActionResult save(Ejemplar ejemplar) {
+        public ActionResult save(EjemplarWSClient.WSEjemplarModel ejemplar) {
             ActionResult resultado = null;
             if (ModelState.IsValid) {
-                if (ejemplar.CodEjemplar > -1) {
-                    es.update(ejemplar);
+                if (ejemplar.ISBN != null) {
+                    //es.update(ejemplar);
+                    using (EjemplarWSClient.WSEjemplarClient cliente = new EjemplarWSClient.WSEjemplarClient()) {
+                        cliente.Update(ejemplar);
+                    }
                     ViewBag.Message = "El ejemplar se ha actualizado";
                 } else {
-                    es.create(ejemplar);
+                    //es.create(ejemplar);
+                    using (EjemplarWSClient.WSEjemplarClient cliente = new EjemplarWSClient.WSEjemplarClient()) {
+                        cliente.Create(ejemplar);
+                    }
                     ViewBag.Message = "El ejemplar se ha creado con éxito";
                 }
                 resultado = RedirectToAction("Index");
@@ -58,11 +64,13 @@ namespace SOAP.Controllers
         //GET : Ejemplar/createUpdate
         public ActionResult createUpdate(int codLibro, int cod = -1) {
             ActionResult resultado = null;
-            Ejemplar ejemplar = null;
+            EjemplarWSClient.WSEjemplarModel ejemplar = null;
             //Libro libro = null;
 
             if (cod > 0) {
-                ejemplar = es.getEjemplarById(cod);
+                using (EjemplarWSClient.WSEjemplarClient cliente = new EjemplarWSClient.WSEjemplarClient()) {
+                    ejemplar = cliente.GetById(cod);
+                }
                 ViewBag.Message = "Editar Ejemplar";
                 //libro = lS.getById(codLibro);
                 //ejemplar.CodLibro = libro.CodLibro;
@@ -71,7 +79,7 @@ namespace SOAP.Controllers
                 resultado = View("Ejemplar", ejemplar);
             } else {
                 ViewBag.Message = "Nuevo Ejemplar";
-                ejemplar = new Ejemplar();
+                ejemplar = new EjemplarWSClient.WSEjemplarModel();
                 //ejemplar.CodLibro = libro.CodLibro;
                 //ejemplar.Titulo = libro.Titulo;
                 //ejemplar.Autor = libro.Autor;
@@ -83,10 +91,13 @@ namespace SOAP.Controllers
 
         //GET: Ejemplar/Delete/5
         public ActionResult delete(int cod) {
-            if (es.getEjemplarById(cod) != null) {
-                es.delete(cod);
-                ViewBag.Message = "El ejemplar se ha borrado correctamente";
+            using (EjemplarWSClient.WSEjemplarClient cliente = new EjemplarWSClient.WSEjemplarClient()) {
+                if (cliente.GetById(cod) != null) {
+                    cliente.Delete(cod);
+                    ViewBag.Message = "El ejemplar se ha borrado correctamente";
+                }
             }
+            
             /*
              * Si pones View("") --> Lo mandas a la vista
              * Si pones RedirectToAction --> lo mandas al metodo del controlador

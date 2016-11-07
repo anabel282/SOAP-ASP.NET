@@ -1,4 +1,4 @@
-﻿
+﻿@model IList<SOAP.WSEditorialOLD.WSEditorial> 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -18,17 +18,13 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-4">
-                    @item.Nombre
+                    @item.nombre
                 </div>
                 <div class="col-lg-8">
-                    @Html.ActionLink("Editar", "createUpdate", new {
-                   codEditorial = @item.CodEditorial
-               }, htmlAttributes: new {
+                    @Html.ActionLink("Editar", "createUpdate","", htmlAttributes: new {
                    @class = "btn btn-warning"
                })
-                    @Html.ActionLink("Borrar", "delete", new {
-                   codEditorial = @item.CodEditorial
-               }, htmlAttributes: new {
+                    @Html.ActionLink("Borrar", "delete","", htmlAttributes: new {
                    @class = "btn btn-danger"
                })
                 </div>

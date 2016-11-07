@@ -1,4 +1,4 @@
-﻿
+﻿@model IList<SOAP.EjemplarWSClient.WSEjemplarModel>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -20,9 +20,6 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-3">
-                <h4>Titulo:</h4>
-            </div>
             <div class="col-lg-1">
                 <h4>ISBN:</h4>
             </div>
@@ -37,9 +34,6 @@
     @foreach (var item in Model) {
 
         <div class="row">
-            <div class="col-lg-3">
-                @item.Titulo
-            </div>
             <div class="col-lg-1">
                 @item.ISBN
             </div>
@@ -54,18 +48,13 @@
                @class = "btn btn-success"
            })
             </div>
-            @if (User.IsInRole("Admin")) {
                 <div class="col-lg-1">
-                    @Html.ActionLink("Borrar", "delete", new {
-                   cod = @item.CodEjemplar
-               }, htmlAttributes: new {
+                    @Html.ActionLink("Borrar", "delete", "", htmlAttributes: new {
                    @class = "btn btn-danger"
                })
-                </div>}
+                </div>
             <div class="col-lg-1">
-                @Html.ActionLink("Modificar", "createUpdate", new {
-               cod = @item.CodEjemplar
-           }, htmlAttributes: new {
+                @Html.ActionLink("Modificar", "createUpdate", "", htmlAttributes: new {
                @class = "btn btn-warning"
            })
             </div>

@@ -6,19 +6,19 @@
 
 <section>
     @using (Html.BeginForm("save", "Editorial", FormMethod.Post)) {
-        @Html.HiddenFor(model => model.CodEditorial)
+      
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
-                    @Html.LabelFor(model => model.Nombre, htmlAttributes: new {
+                    @Html.LabelFor(model => model.nombre, htmlAttributes: new {
                    @class = ""
                })
-                    @Html.EditorFor(model => model.Nombre, new {
+                    @Html.EditorFor(model => model.nombre, new {
                    htmlAttributes = new {
                        @class = ""
                    }
                })
-                    @Html.ValidationMessageFor(model => model.Nombre, "", new {
+                    @Html.ValidationMessageFor(model => model.nombre, "", new {
                    @class = ""
                })
                 </div>

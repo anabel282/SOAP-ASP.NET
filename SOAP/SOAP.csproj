@@ -163,6 +163,7 @@
     <Content Include="Views\Editorial\Editorial.cshtml" />
     <Content Include="Views\Ejemplar\Index.cshtml" />
     <Content Include="Views\Ejemplar\Ejemplar.cshtml" />
+    <Content Include="Views\Shared\_MenuPartialwithLogin.cshtml" />
     <None Include="Web References\WSEditorialOLD\WSEditorialOLD.disco" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>

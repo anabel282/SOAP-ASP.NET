@@ -1,4 +1,4 @@
-﻿@model GestionBibliotecaMVC.Models.Ejemplar
+﻿@model SOAP.EjemplarWSClient.WSEjemplarModel
 
 @{
     ViewBag.Title = "Ejemplar";
@@ -7,26 +7,6 @@
 
 <section>
     @using (Html.BeginForm("save", "Ejemplar", FormMethod.Post)) {
-        @Html.HiddenFor(model => model.CodEjemplar)
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="col-lg-1">
-                    @Html.LabelFor(model => model.Titulo, htmlAttributes: new {
-                   @class = ""
-               })
-                </div>
-                <div class="col-lg-1">
-                    @Html.EditorFor(model => model.Titulo, new {
-                   htmlAttributes = new {
-                       @class = ""
-                   }
-               })
-                </div>
-                @Html.ValidationMessageFor(model => model.Titulo, "", new {
-               @class = ""
-           })
-            </div>
-        </div>
         <div class="row">
             <div class="col-lg-12">
                 <div class="col-lg-1">

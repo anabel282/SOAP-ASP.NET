@@ -10,7 +10,6 @@ using System.Web.Mvc;
 namespace SOAP.Controllers
 {
 
-    [Authorize(Roles = "Admin")]
     public class EditorialController : Controller {
         private EditorialService eS;
         public EditorialController() {
